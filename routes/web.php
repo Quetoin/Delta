@@ -11,10 +11,21 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/whoarewe', 'FrontController@whoarewe')->name('whoarewe');
+Route::get('/contact', 'FrontController@contact')->name('contact');
+
+Route::get("boutique", "ProductController@index")->name("boutique");
+Route::get("boutique/{slug}","ProductController@show")->name("products.show");
+
+
+Route::post("/panier/ajouter","CartController@store")->name("cart.store");
+
+Route::get("vide_panier", function(){
+  Cart::destroy();
+});
+
+Route::get("panier", "CartController@index")->name("cart.index");
