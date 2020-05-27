@@ -19,14 +19,10 @@
   </div>
   @endif
 
-  <div class="row jumbotron p-4 p-md-5 text-white rounded bg-dark mb-5">
-    <div class="col-md-6 px-0 d-flex flex-column">
-      <h1 class="display-4 font-italic">Bienvenue sur le site des vêtements Delta</h1>
-      <p class="lead my-3">Qui on est ? Juste une bande de potes qui ont décidé de faire des vêtements à leur image ! On a commencé en s'amusant puis petit à petit on s'est rendu compte que ce qu'on faisait était cool.</p>
-      <figure class="mx-auto"><img src="img/logoDeltaBlanc.png" style="width:193px;height:173px;border-radius:8px;"></figure>
-    </div>
-    <div class="col-md-6">
-      <img src="img/team.png" style="width:550px;height:350px;" class="rounded-lg">
+  <div class="row jumbotron text-white rounded mb-5 mainContainer">
+    <div class="col-md-12 px-0 d-flex justify-content-center">
+      <h1 class="display-4 font-italic align-self-center">Delta store.</h1>
+      <figure class="mx-0"><img src="img/logoDeltaBlanc.png" style="width:193px;height:173px;border-radius:8px;"></figure>
     </div>
   </div>
 

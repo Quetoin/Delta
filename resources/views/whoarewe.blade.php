@@ -4,7 +4,7 @@
 
 <div class="container">
 
-  <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+  <div class="jumbotron p-4 p-md-5 text-white rounded mainContainer">
     <div class="col-md-12 px-0">
       <h1 class="display-4 font-italic">Vous souhaitez commander ? C'est par ici que ça se passe ...</h1>
       <p class="lead my-3">Ici vous trouverez tous nos produits, que vous pourrez sélectionner, rajouter au panier, vous pouvez voir les avis, en laisser.</p>

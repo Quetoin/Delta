@@ -17,9 +17,5 @@ class ProductController extends Controller
 
       return view("products.show")->with('product',$product);
     }
-
-    public function home(){
-      $products = Product::inRandomOrder()->take(1)->get();
-      return view ("home")->with("products",$products);
-    }
+    
 }

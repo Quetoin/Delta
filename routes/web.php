@@ -21,8 +21,12 @@ Route::get('/contact', 'FrontController@contact')->name('contact');
 Route::get("boutique", "ProductController@index")->name("boutique");
 Route::get("boutique/{slug}","ProductController@show")->name("products.show");
 
+Route::get("/register","UserController@register")->name("register");
+
 
 Route::post("/panier/ajouter","CartController@store")->name("cart.store");
+
+Route::delete("/panier/{rowId}", "CartController@destroy")->name("cart.destroy");
 
 Route::get("vide_panier", function(){
   Cart::destroy();
