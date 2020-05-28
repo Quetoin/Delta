@@ -11,25 +11,37 @@
 |
 */
 
-Auth::routes();
 
+
+/* --- Routes pour les différentes pages du site */
 Route::get('/home', 'HomeController@index')->name('home');
-
 Route::get('/whoarewe', 'FrontController@whoarewe')->name('whoarewe');
 Route::get('/contact', 'FrontController@contact')->name('contact');
 
+
+/* --- Routes pour la boutique */
 Route::get("boutique", "ProductController@index")->name("boutique");
 Route::get("boutique/{slug}","ProductController@show")->name("products.show");
-
-Route::get("/register","UserController@register")->name("register");
-
-
+Route::get("panier", "CartController@index")->name("cart.index");
 Route::post("/panier/ajouter","CartController@store")->name("cart.store");
-
 Route::delete("/panier/{rowId}", "CartController@destroy")->name("cart.destroy");
 
 Route::get("vide_panier", function(){
   Cart::destroy();
 });
 
-Route::get("panier", "CartController@index")->name("cart.index");
+
+/* --- Routes pour les utilisateurs */
+Auth::routes();
+Route::get("/register","UserController@register")->name("register");
+
+
+/* --- Routes pour le paiement */
+
+Route::get("paiement", "PaiementController@index")->name("paiement.index");
+Route::post("paiement","PaiementController@store")->name("paiement.store");
+Route::get("/merci", function(){
+  return view("paiement.merci");
+});
+
+

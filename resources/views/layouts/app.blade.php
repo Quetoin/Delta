@@ -9,6 +9,9 @@
 
     <title>{{ config('Delta Store', 'Delta Store') }}</title>
 
+    
+    @yield("extra-script")
+
     <!-- Scripts -->
     <script src="{{ asset('../resources/js/app.js') }}" defer></script>
 
@@ -143,7 +146,8 @@
 
     </footer>
 
-    
-</body>
+
+@yield("extra-js")
 <script src="https://kit.fontawesome.com/586aab2eb8.js" crossorigin="anonymous"></script>
+</body>
 </html>
