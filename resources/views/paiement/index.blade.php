@@ -96,7 +96,7 @@ form.addEventListener('submit', function(ev) {
       // The payment has been processed!
       if (result.paymentIntent.status === 'succeeded') {
         var paymentIntent = result.paymentIntent;
-        var token = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+        var token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
         var url = form.action;
         var redirect = "merci";
 
@@ -120,7 +120,8 @@ form.addEventListener('submit', function(ev) {
         }).catch((error) => {
           console.log(error)
         })
-         
+        
+
       }
     }
   });

@@ -24,11 +24,9 @@ Route::get("boutique", "ProductController@index")->name("boutique");
 Route::get("boutique/{slug}","ProductController@show")->name("products.show");
 Route::get("panier", "CartController@index")->name("cart.index");
 Route::post("/panier/ajouter","CartController@store")->name("cart.store");
+Route::patch('/panier/{rowId}', 'CartController@update')->name('cart.update');
 Route::delete("/panier/{rowId}", "CartController@destroy")->name("cart.destroy");
 
-Route::get("vide_panier", function(){
-  Cart::destroy();
-});
 
 
 /* --- Routes pour les utilisateurs */
@@ -40,8 +38,6 @@ Route::get("/register","UserController@register")->name("register");
 
 Route::get("paiement", "PaiementController@index")->name("paiement.index");
 Route::post("paiement","PaiementController@store")->name("paiement.store");
-Route::get("/merci", function(){
-  return view("paiement.merci");
-});
+Route::get("/merci", "PaiementController@merci")->name("paiement.merci");
 
 

@@ -44,7 +44,15 @@
                       </div>
                     </th>
                     <td class="border-0 align-middle">{{$product->model->getPrice()}}</td>
-                    <td class="border-0 align-middle">1</td>
+                    <td class="border-0 align-middle">
+                      <select class="custom-select" name="qty" id="qty" data-id="{{ $product->rowId }}">
+                        @for ($i = 1; $i <= 5; $i++)
+                            <option value="{{ $i }}" {{ $product->qty == $i ? 'selected' : ''}}>
+                                {{ $i }}
+                            </option>
+                        @endfor
+                    </select>
+                    </td>
                     <td class="border-0 align-middle">
                       
                       <form action="{{route('cart.destroy', $product->rowId)}}" method="post">
@@ -107,4 +115,31 @@
     </div>
   </div>
 @endif
+@endsection
+
+
+@section("extra-js")
+<script src="{{asset('js/app.js')}}"></script>
+<script>
+  var qty = document.querySelectorAll('#qty');
+  Array.from(qty).forEach((element) => {
+      element.addEventListener('change', function () {
+
+        var rowId = element.getAttribute('data-id');
+        var token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+        axios.patch("panier/"+rowId, {
+          qty:this.value
+
+        }).then((data) => {
+            console.log(data);
+            location.reload();
+        }).catch((error) => {
+            console.log(error);
+        });
+      });
+  });
+</script>
+
+
 @endsection
