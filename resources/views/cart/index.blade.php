@@ -2,6 +2,7 @@
 
 @section('content')
 
+<div class="container">
 @if(Cart::count() > 0)
 
   <div class="px-4 px-lg-0">
@@ -111,17 +112,20 @@
 @else
   <div class="jumbotron p-4 p-md-5 text-white rounded mainContainer">
     <div class="col-md-12 px-0">
-      <p class="lead my-3 text-center">Votre panier est vide</p>
+      <h1 class="lead-2 my-3 text-center">Votre panier est vide</h1>
+      <p class="text-center"> Visite la page des <a href="{{route('boutique')}}">produits</a> pour le remplir !</p>
     </div>
   </div>
 @endif
+</div>
 @endsection
 
 
 @section("extra-js")
-<script src="{{asset('js/app.js')}}"></script>
 <script>
+
   var qty = document.querySelectorAll('#qty');
+  
   Array.from(qty).forEach((element) => {
       element.addEventListener('change', function () {
 

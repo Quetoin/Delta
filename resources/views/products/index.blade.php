@@ -5,6 +5,14 @@
 
 <div class="container">
 
+  <div class="nav-scroller py-1 mb-2" style="margin-top:150px;">
+    <nav class="nav d-flex justify-content-center">
+      @foreach (App\Category::all() as $category)
+          <a class="p-2 text-muted" href="{{ route('boutique', ['categorie' => $category->slug]) }}">{{ $category->name }}</a>
+      @endforeach
+    </nav>
+  </div>
+
   <div class="jumbotron p-4 p-md-5 text-white rounded mainContainer">
     <div class="col-md-12 px-0">
       <h1 class="display-4 font-italic">Vous souhaitez commander ? C'est par ici que ça se passe ...</h1>
@@ -23,13 +31,18 @@
     <div class="col-md-6">
       <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
         <div class="col p-4 d-flex flex-column position-static">
-          <strong class="d-inline-block mb-2 text-primary">Polo</strong>
+          <strong class="d-inline-block mb-2 text-primary">
+            @foreach($product->categories as $category)
+              {{$category->name}}
+
+            @endforeach
+          </strong>
 
           
 
             <h3 class="mb-0">{{$product->title}}</h3>
             <div class="mb-1 text-muted">{{$product->getPrice()}}</div>
-            <p class="card-text mb-auto">{{$product->description}}.</p>
+            <p class="card-text mb-auto">{!!$product->description!!}</p>
             <a href="{{route('products.show', $product->slug)}}" class="stretched-link">Voir l'article</a>
           
         </div>
@@ -43,6 +56,8 @@
       </div>
     </div>
     @endforeach
+    {{$products->appends(request()->input())->links()}}
+
   </div>
 </div>
 

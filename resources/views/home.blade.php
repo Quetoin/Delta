@@ -19,6 +19,7 @@
   </div>
   @endif
 
+
   <div class="row jumbotron text-white rounded mb-5 mainContainer">
     <div class="col-md-12 px-0 d-flex justify-content-center">
       <h1 class="display-4 font-italic align-self-center">Delta store.</h1>
@@ -30,7 +31,7 @@
   <div class="row mb-5">
     <div class="col-md-12">
       <div class="row no-gutters overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative text-center">
-        <h2>Voici un petit aperçu de nos produits ci-dessous, allez sur la page <a href="{{route('boutique')}}">produits</a> pour en voir plus</h2>
+        <h2>Bienvenue sur le site de Delta, allez sur la liste des <a href="{{route('boutique')}}">produits</a> pour en voir plus ... sinon, un petit aperçu ci-dessous.</h2>
       </div>
     </div>
   </div>
@@ -43,7 +44,12 @@
 
         
         <div class="col p-4 d-flex flex-column position-static">
-          <strong class="d-inline-block mb-2 text-primary">Polo</strong>
+          <strong class="d-inline-block mb-2 text-primary">
+            @foreach($product->categories as $category)
+              {{$category->name}}
+
+            @endforeach
+          </strong>
             <h3 class="mb-0">{{$product->title}}</h3>
             <div class="mb-1 text-muted">{{$product->getPrice()}}</div>
             <p class="card-text mb-auto">{{$product->description}}</p>

@@ -109,7 +109,7 @@ form.addEventListener('submit', function(ev) {
               "X-Requested-With" : "XMLHttpRequest",
               "X-CSRF-TOKEN" : token
             },
-            method:"post",
+            method:"POST",
             body: JSON.stringify({
               paymentIntent: paymentIntent
             })

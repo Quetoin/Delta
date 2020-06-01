@@ -20,5 +20,10 @@ class UserController extends Controller
   }
 
 
+  public function orders(){
+    return view("auth.orders");
+  }
+
+
   
 }

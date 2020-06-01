@@ -28,7 +28,7 @@
 
             <h3 class="mb-0">{{$product->title}}</h3>
             <div class="mb-1 text-muted">{{$product->getPrice()}}</div>
-            <p class="card-text mb-auto">{{$product->description}}.</p>
+            <p class="card-text mb-auto">{!!$product->description!!}</p>
             
             <form action="{{route('cart.store')}}" method="POST">
               @csrf
