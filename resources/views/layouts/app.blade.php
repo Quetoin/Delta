@@ -74,7 +74,8 @@
 
   <div id="app">
 
-    <example-component></example-component>
+    <router-link to="/home">Home</router-link>
+    <router-link to="/produits">Produits</router-link>
 
     <header class="blog-header py-3 border-bottom fixed-top bg-light">
       <div class="row flex-nowrap justify-content-between align-items-center">
@@ -86,6 +87,7 @@
 
         <div class="col-6 d-flex justify-content-center">
           <div class="col-2 d-flex justify-content-center align-items-center">
+           
             <a class="btn btn-sm btn-outline-secondary py-2 px-3" href="{{route('home')}}">Accueil</a>
           </div>
 
@@ -144,29 +146,16 @@
       </div>
     </header>
 
-    
 
-
-      <div>
-        
           <main class="py-4">
+            <div class="container">
 
-            @if (session("success"))
-              <div class="alert alert-success">
-                {{session("success")}}
-              </div>
-            @endif
-
-            @if (session("error"))
-              <div class="alert alert-danger">
-                {{session("error")}}
-              </div>
-            @endif
-
-
+            <router-view></router-view>
+            </div>
               @yield('content')
+              
+
           </main>
-      </div>
 
       <footer class="blog-footer bg-dark text-white d-flex row  mx-0" style="margin-top:100px;">
 
