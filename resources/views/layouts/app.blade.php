@@ -13,7 +13,7 @@
     @yield("extra-script")
 
     <!-- Scripts -->
-    
+    <script src="{{ asset('/js/app.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -21,10 +21,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="css/appPerso.css" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link href="/docs/4.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{{asset('css/app.css')}}">;
 
     <style>
       .bd-placeholder-img {
@@ -188,6 +188,6 @@
 
 @yield("extra-js")
 <script src="https://kit.fontawesome.com/586aab2eb8.js" crossorigin="anonymous"></script>
-<script src="{{ asset('/js/app.js') }}"></script>
+
 </body>
 </html>
