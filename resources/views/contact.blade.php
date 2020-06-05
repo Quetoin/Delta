@@ -5,14 +5,14 @@
 <div class="container">
 
   <!--Section: Contact v.2-->
-<section class="mb-4">
+<section class="mb-4 mx-2">
 
   <!--Section heading-->
   <h2 class="h1-responsive font-weight-bold text-center my-4">Contactes-nous</h2>
   <!--Section description-->
   <p class="text-center w-responsive mx-auto mb-5">T'as des questions ? N'hésites pas à nous contacter directement, on reviendra vers toi dès que possible :)</p>
 
-  <div class="row">
+  <div class="row mx-0">
 
       <!--Grid column-->
       <div class="col-md-9 mb-md-0 mb-5">
@@ -24,8 +24,8 @@
                   <!--Grid column-->
                   <div class="col-md-6">
                       <div class="md-form mb-0">
-                          <input type="text" id="name" name="name" class="form-control">
-                          <label for="name" class="">Ton nom</label>
+                        <label for="name" class="">Ton nom :</label>
+                        <input type="text" id="name" name="name" class="form-control">
                       </div>
                   </div>
                   <!--Grid column-->
@@ -33,8 +33,8 @@
                   <!--Grid column-->
                   <div class="col-md-6">
                       <div class="md-form mb-0">
-                          <input type="text" id="email" name="email" class="form-control">
-                          <label for="email" class="">Ton mail</label>
+                        <label for="email" class="">Ton mail :</label>
+                        <input type="text" id="email" name="email" class="form-control">
                       </div>
                   </div>
                   <!--Grid column-->
@@ -46,8 +46,8 @@
               <div class="row">
                   <div class="col-md-12">
                       <div class="md-form mb-0">
-                          <input type="text" id="subject" name="subject" class="form-control">
-                          <label for="subject" class="">Sujet</label>
+                        <label for="subject" class="">Sujet :</label>
+                        <input type="text" id="subject" name="subject" class="form-control">
                       </div>
                   </div>
               </div>
@@ -60,8 +60,8 @@
                   <div class="col-md-12">
 
                       <div class="md-form">
-                          <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
-                          <label for="message">Ton message</label>
+                        <label for="message">Ton message :</label>
+                        <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
                       </div>
 
                   </div>
@@ -70,7 +70,7 @@
 
           </form>
 
-          <div class="text-center text-md-left">
+          <div class="text-center text-md-left mt-2">
               <a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();">Envoyer</a>
           </div>
           <div class="status"></div>
@@ -85,7 +85,7 @@
               </li>
 
               <li><i class="fas fa-phone mt-4 fa-2x"></i>
-                  <p>+33 6 07 62 55 19</p>
+                  <p><a href="tel:+33607625519">+33 6 07 62 55 19</p>
               </li>
 
               <li><i class="fas fa-envelope mt-4 fa-2x"></i>

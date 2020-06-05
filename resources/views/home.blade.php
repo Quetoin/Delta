@@ -23,7 +23,7 @@
   <div class="row jumbotron text-white rounded mb-5 mainContainer">
     <div class="col-md-12 px-0 d-flex justify-content-center">
       <h1 class="display-4 font-italic align-self-center">Delta store.</h1>
-      <figure class="mx-0"><img src="img/logoDeltaBlanc.png" style="width:193px;height:173px;border-radius:8px;"></figure>
+      <figure class="mx-0"><img src="{{asset('img/logoDeltaBlanc.png')}}" style="width:193px;height:173px;border-radius:8px;"></figure>
     </div>
   </div>
 

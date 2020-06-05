@@ -5,20 +5,9 @@
 
 <div class="container">
 
-  <div class="jumbotron p-4 p-md-5 text-white rounded mainContainer">
-    <div class="col-md-12 px-0">
-      <h1 class="display-4 font-italic">Vous souhaitez commander ? C'est par ici que ça se passe ...</h1>
-      <p class="lead my-3">Ici vous trouverez tous nos produits, que vous pourrez sélectionner, rajouter au panier, vous pouvez voir les avis, en laisser.</p>
-    </div>
-  </div>
+  <button type="button" class="btn btn-outline-secondary"><a class="badge badge-light" href="{{route('boutique')}}">Revenir à la boutique</a></button>
 
-
- 
-
-
-
-
-  <div class="row mb-2">
+  <div class="row my-4">
     <div class="col-md-6">
       <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
         <div class="col p-4 d-flex flex-column position-static">

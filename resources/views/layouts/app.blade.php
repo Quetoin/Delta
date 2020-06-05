@@ -9,7 +9,6 @@
 
     <title>{{ config('Delta Store', 'Delta Store') }}</title>
 
-    
     @yield("extra-script")
 
     <!-- Scripts -->
@@ -21,51 +20,12 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="css/appPerso.css" rel="stylesheet">
+    <link href="{{asset('css/appPerso.css')}}" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link href="/docs/4.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-
-      i{
-        font-size:1.6em;
-      }
-
-      li{
-        list-style: none;
-      }
-
-      .mainContainer{
-        padding:60px !important;
-        background-color: rgba(50,50,50);
-      }
-
-      .container{
-        margin-top:150px;
-      }
-
-    </style>
 
     <!-- Custom styles for this template -->
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="blog.css" rel="stylesheet">
 
 
 
@@ -74,86 +34,96 @@
 
   <div id="app">
 
-    <router-link to="/home">Home</router-link>
-    <router-link to="/produits">Produits</router-link>
-
     <header class="blog-header py-3 border-bottom fixed-top bg-light">
-      <div class="row flex-nowrap justify-content-between align-items-center">
 
-        <div class="col-6">
-          <img src="img/logoDeltaNoir.png" akt="logoDeltaNoir">
+      <div class="row flex-nowrap justify-content-between align-items-center" id="navbar">
+
+        <div class="col-2">
+          <img src="{{asset('img/logoDeltaNoir.png')}}" akt="logoDeltaNoir">
         </div>
 
 
-        <div class="col-6 d-flex justify-content-center">
-          <div class="col-2 d-flex justify-content-center align-items-center">
+        <div class="btn-group d-none mr-4" id="mobileMenu">
+          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Menu
+          </button>
+          <div class="dropdown-menu dropdown-menu-center">
+            <button class="dropdown-item" type="button"><a href="{{route('home')}}">Accueil</a></button>
+
+            <button class="dropdown-item" type="button"><a href="{{route('boutique')}}">Produits</a>
+            </button>
+            
+            <button class="dropdown-item" type="button"><a href="{{route('whoarewe')}}">Qui on est ?</a></button>
+            
+            <button class="dropdown-item" type="button"><a href="{{route('contact')}}">Contact</a></button>
+            
+            <button class="dropdown-item" type="button"><a href="{{route('cart.index')}}">Panier<span class="badge badge-pill badge-dark mx-2 px-2">{{Cart::count()}}</span></a></button>
+          </div>
+        </div>
+
+
+        <div class="col-9 d-flex justify-content-center" id="menuDesktop">
+          <div class="col-2 d-flex justify-content-center align-items-center menuDesktop-col">
            
             <a class="btn btn-sm btn-outline-secondary py-2 px-3" href="{{route('home')}}">Accueil</a>
           </div>
 
-          <div class="col-2 d-flex justify-content-center align-items-center">
+          <div class="col-2 d-flex justify-content-center align-items-center menuDesktop-col">
             <a class="btn btn-sm btn-outline-secondary py-2 px-3" href="{{route('boutique')}}">Produits</a>
           </div>
 
-          <div class="col-2 d-flex justify-content-center align-items-center">
+          <div class="col-2 d-flex justify-content-center align-items-center menuDesktop-col">
             <a class="btn btn-sm btn-outline-secondary py-2 px-3" href="{{route('whoarewe')}}">Qui on est ?</a>
           </div>
 
-          <div class="col-2 d-flex justify-content-center align-items-center">
+          <div class="col-2 d-flex justify-content-center align-items-center menuDesktop-col">
             <a class="btn btn-sm btn-outline-secondary py-2 px-3" href="{{route('contact')}}">Contact</a>
           </div>
 
-          <div class="col-2 d-flex justify-content-center align-items-center">
+          <div class="col-2 d-flex justify-content-center align-items-center menuDesktop-col">
             <a class="btn btn-sm btn-outline-secondary py-2 px-3" href="{{route('cart.index')}}">Panier<span class="badge badge-pill badge-dark mx-2 px-2">{{Cart::count()}}</span></a>
           </div>
 
 
                     <!-- Authentication Links -->
           
-            @guest
-              <li class="nav-item">
-                  <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-              </li>
-              @if (Route::has('register'))
-                  <li class="nav-item">
-                      <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                  </li>
-              @endif
-            @else
-            <li class="nav-item dropdown">
-                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" v-pre>
-                    {{ Auth::user()->name }} <span class="caret"></span>
-                </a>
-
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('orders') }}">Mes commandes</a>
-
-                    <a class="dropdown-item" href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
-                    </a>
-
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
-                </div>
+          @guest
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
             </li>
-            @endguest
-          
+            @if (Route::has('register'))
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                </li>
+            @endif
+          @else
+          <li class="nav-item dropdown">
+              <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" v-pre>
+                  {{ Auth::user()->name }} <span class="caret"></span>
+              </a>
 
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="{{ route('orders') }}">Mes commandes</a>
 
-      </div>
+                  <a class="dropdown-item" href="{{ route('logout') }}"
+                      onclick="event.preventDefault();
+                                      document.getElementById('logout-form').submit();">
+                      {{ __('Logout') }}
+                  </a>
+
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                      @csrf
+                  </form>
+              </div>
+          </li>
+          @endguest
+ 
+        </div>
     </header>
 
 
           <main class="py-4">
-            <div class="container">
-
-            <router-view></router-view>
-            </div>
               @yield('content')
-              
 
           </main>
 

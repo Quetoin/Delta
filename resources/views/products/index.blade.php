@@ -5,23 +5,14 @@
 
 <div class="container">
 
-  <div class="nav-scroller py-1 mb-2" style="margin-top:150px;">
+
+  <div class="nav-scroller py-1 my-2">
     <nav class="nav d-flex justify-content-center">
       @foreach (App\Category::all() as $category)
           <a class="p-2 text-muted" href="{{ route('boutique', ['categorie' => $category->slug]) }}">{{ $category->name }}</a>
       @endforeach
     </nav>
   </div>
-
-  <div class="jumbotron p-4 p-md-5 text-white rounded mainContainer">
-    <div class="col-md-12 px-0">
-      <h1 class="display-4 font-italic">Vous souhaitez commander ? C'est par ici que ça se passe ...</h1>
-      <p class="lead my-3">Ici vous trouverez tous nos produits, que vous pourrez sélectionner, rajouter au panier, vous pouvez voir les avis, en laisser.</p>
-    </div>
-  </div>
-
-
- 
 
 
 
@@ -38,7 +29,7 @@
             @endforeach
           </strong>
 
-          
+
 
             <h3 class="mb-0">{{$product->title}}</h3>
             <div class="mb-1 text-muted">{{$product->getPrice()}}</div>
@@ -48,10 +39,21 @@
         </div>
 
 
-
+        <?php
+          //
+        ?>
 
         <div class="col-auto d-none d-lg-block">
-          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+          <p>
+            <?php 
+              
+            ?>
+        
+          {{-- <img src="{{ asset('storage/app/public/'.json_decode($product->image)[0])}}">
+          echo Voyager::image($product->image);
+              $file = (json_decode($product->image))[0]->download_link;
+          
+          --}}
         </div>
       </div>
     </div>

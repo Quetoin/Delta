@@ -13,7 +13,7 @@
   <div class="col-md-12">
     <h1>Page de paiement</h1>
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-12">
 
         <form id="payment-form" action="{{route('paiement.store')}}" method="post" class="my-4">
           @csrf
