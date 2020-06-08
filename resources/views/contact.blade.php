@@ -4,103 +4,67 @@
 
 <div class="container">
 
-  <!--Section: Contact v.2-->
-<section class="mb-4 mx-2">
-
   <!--Section heading-->
   <h2 class="h1-responsive font-weight-bold text-center my-4">Contactes-nous</h2>
   <!--Section description-->
   <p class="text-center w-responsive mx-auto mb-5">T'as des questions ? N'hésites pas à nous contacter directement, on reviendra vers toi dès que possible :)</p>
 
-  <div class="row mx-0">
-
+  <div class="row">
       <!--Grid column-->
-      <div class="col-md-9 mb-md-0 mb-5">
-          <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+    <div class="col-md-7 mb-md-0 mb-5">
+      <form action="{{route('contact')}}" method="POST">
+        @csrf
 
-              <!--Grid row-->
-              <div class="row">
+        <div class="form-group">
+          <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="Ton nom ..." value="{{old('name')}}">
+          @error('name')
+            <div class="invalid-feedback">
+              {{$errors->first("name")}}
+            </div>
+            @enderror
+        </div>
 
-                  <!--Grid column-->
-                  <div class="col-md-6">
-                      <div class="md-form mb-0">
-                        <label for="name" class="">Ton nom :</label>
-                        <input type="text" id="name" name="name" class="form-control">
-                      </div>
-                  </div>
-                  <!--Grid column-->
+        <div class="form-group">
+          <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Ton email ..." value="{{old('email')}}">
+          @error('email')
+            <div class="invalid-feedback">
+              {{$errors->first("email")}}
+            </div>
+            @enderror
+        </div>
 
-                  <!--Grid column-->
-                  <div class="col-md-6">
-                      <div class="md-form mb-0">
-                        <label for="email" class="">Ton mail :</label>
-                        <input type="text" id="email" name="email" class="form-control">
-                      </div>
-                  </div>
-                  <!--Grid column-->
+        <div class="form-group">
+          <textarea name="message" cols="15" rows="8" class="form-control @error('name') is-invalid @enderror" placeholder="Ton message ..." value="{{old('message')}}"></textarea>
+          @error('message')
+            <div class="invalid-feedback">
+              {{$errors->first("message")}}
+            </div>
+            @enderror
+        </div>
 
-              </div>
-              <!--Grid row-->
+        <button type="submit" class="btn btn-primary">Envoyer un message</button>
 
-              <!--Grid row-->
-              <div class="row">
-                  <div class="col-md-12">
-                      <div class="md-form mb-0">
-                        <label for="subject" class="">Sujet :</label>
-                        <input type="text" id="subject" name="subject" class="form-control">
-                      </div>
-                  </div>
-              </div>
-              <!--Grid row-->
+      </form>
+    </div>
 
-              <!--Grid row-->
-              <div class="row">
 
-                  <!--Grid column-->
-                  <div class="col-md-12">
+    <div class="col-md-5 text-center">
+      <ul class="list-unstyled mb-0">
+          <li><i class="fas fa-map-marker-alt fa-2x"></i>
+              <p>Rue de la croix-blanche, 31700 Blagnac</p>
+          </li>
 
-                      <div class="md-form">
-                        <label for="message">Ton message :</label>
-                        <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
-                      </div>
+          <li><i class="fas fa-phone mt-4 fa-2x"></i>
+              <p><a href="tel:+33607625519">+33 6 07 62 55 19</a></p>
+          </li>
 
-                  </div>
-              </div>
-              <!--Grid row-->
-
-          </form>
-
-          <div class="text-center text-md-left mt-2">
-              <a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();">Envoyer</a>
-          </div>
-          <div class="status"></div>
-      </div>
-      <!--Grid column-->
-
-      <!--Grid column-->
-      <div class="col-md-3 text-center">
-          <ul class="list-unstyled mb-0">
-              <li><i class="fas fa-map-marker-alt fa-2x"></i>
-                  <p>Blagnac, 31700 Blagnac</p>
-              </li>
-
-              <li><i class="fas fa-phone mt-4 fa-2x"></i>
-                  <p><a href="tel:+33607625519">+33 6 07 62 55 19</p>
-              </li>
-
-              <li><i class="fas fa-envelope mt-4 fa-2x"></i>
-                  <p>arthur.moulac2003@gmail.com</p>
-              </li>
-          </ul>
-      </div>
-      <!--Grid column-->
+          <li><i class="fas fa-envelope mt-4 fa-2x"></i>
+              <p><a href="mailto:arthur.moulac2003@gmail.com">arthur.moulac2003@gmail.com</a></p>
+          </li>
+      </ul>
+    </div>
 
   </div>
-
-</section>
-<!--Section: Contact v.2-->
-
-
 
 </div>
 @endsection

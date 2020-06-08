@@ -19,7 +19,6 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/whoarewe', 'FrontController@whoarewe')->name('whoarewe');
 Route::get('/contact', 'FrontController@contact')->name('contact');
-Route::view("/testVue","testVue");
 
 
 /* --- Routes pour la boutique */
@@ -48,6 +47,10 @@ Route::group(['middleware' => 'auth'], function () {
   Route::post("paiement","PaiementController@store")->name("paiement.store");
   Route::get("/merci", "PaiementController@merci")->name("paiement.merci");
 });
+
+
+/* --- Routes pour le contact */
+Route::post("/contact","ContactController@store");
 
 
 

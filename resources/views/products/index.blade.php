@@ -45,13 +45,28 @@
 
         <div class="col-auto d-none d-lg-block">
           <p>
-            <?php 
-              
-            ?>
+<?php
+           
         
-          {{-- <img src="{{ asset('storage/app/public/'.json_decode($product->image)[0])}}">
+           
+
+            ?>
+            <img src="{{ Voyager::image($product->image)}}">
+        
+          {{--
+            
+            $file = json_decode(($product->image)[0]->download_link);
+            
+      
+             {{ Voyager::image($file) }}
+            
+            
+            <img src="{{ asset('storage/'.json_decode($product->image)[0])}}">
           echo Voyager::image($product->image);
               $file = (json_decode($product->image))[0]->download_link;
+              <img src="{{Voyager::image($product->image)}}">
+              $file = asset((json_decode($product->image)));
+              
           
           --}}
         </div>

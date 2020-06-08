@@ -1,3 +1,10 @@
+body{
+  min-width: 320px;
+}
+
+
+
+
 .bd-placeholder-img {
   font-size: 1.125rem;
   text-anchor: middle;
@@ -44,7 +51,6 @@ li{
 .liste-produits{
   border-bottom:1px rgba(0,0,0,0.3) solid;
 }
-
 
 
 
@@ -113,6 +119,10 @@ li{
 
   .container{
     margin-top:200px;
+  }
+
+  .whoAreWeCols{
+    flex-direction: column;
   }
 
 }
